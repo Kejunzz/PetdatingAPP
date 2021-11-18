@@ -7,5 +7,5 @@ The main functions are profile self-creating, matching similar users, adding fri
 
 
 
-https://user-images.githubusercontent.com/91581463/142388572-19a653e5-5ec3-4657-b488-90ba90728746.mp4
+[![Watch the video]](https://user-images.githubusercontent.com/91581463/142390335-4e16e115-5d0c-46a2-a52f-d76769397d33.mov)
 
