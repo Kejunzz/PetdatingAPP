@@ -55,13 +55,27 @@ public class registerController{
     private TextField cityfield;
 
 
-
+    /**
+     * click the cancel button, the page will be closed
+     *
+     * @param  event the action event, it is a click action.
+     *
+     *
+     * */
     public void cancelbutton(ActionEvent event){
         Stage stage=(Stage) cancelButton.getScene().getWindow();
         stage.close();
 
     }
 
+    /**
+     *
+     * ask the users to fill in all the blank. And confirm the password, if passwords entered twice are not matched, throws an error.
+     * @param  event the action event, it is a click action.
+     *
+     *
+     *
+     * */
 
     public void registerbutton(ActionEvent event){
 
@@ -94,7 +108,12 @@ public class registerController{
 //        confirmpasswordmessage.setText("User has registered successfully");
 
 
-
+    /**
+     *
+     * when new user register, his information will be updated to database.
+     *
+     *
+     * */
     public void registerUser(){
         DatabaseConnection connection=new DatabaseConnection();
         Connection connectdb=connection.getConnection();

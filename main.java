@@ -13,7 +13,11 @@ import java.io.IOException;
 public class main extends Application {
 
 
-
+    /**
+     * start the application
+     *
+     *
+     * */
 
 
     @Override

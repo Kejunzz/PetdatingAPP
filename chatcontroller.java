@@ -26,7 +26,7 @@ import java.util.ResourceBundle;
 import static com.example.petdating.loginController.username;
 import static com.example.petdating.matchfriendcontroller.currentusername;
 
-public class chatcontroller implements Initializable {
+public class chatcontroller {
     @FXML
     private Label username1;
 
@@ -88,13 +88,15 @@ public class chatcontroller implements Initializable {
     @FXML
     private Label sent;
 
+    /**
+     *
+     * get messages sent to current user.
+     * @param  id, this is the user name which current user clicks.
+     *
+     *
+     *
+     * */
 
-
-
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        System.out.println("----------TEST--------");
-
-    }
 
     public void setfriendtext(String id){
         String insertFields="select message from messageinfo where username='"+id+"' and sentuser='"+username+"' order by id desc limit 1";
@@ -120,8 +122,19 @@ public class chatcontroller implements Initializable {
         }
     }
 
+    /**
+     *
+     *
+     * @param  user1,user2...， passed the username and petname information from last controller
+     *
+     *
+     *
+     * */
+
+
+
     public void set(String user1,String user2,String user3,String user4,String user5,String user6,String pet1,String pet2,String pet3,String pet4,String pet5,String pet6){
-        System.out.println("TEST SET FUNCTION");
+
         System.out.println(user1);
         username1.setText(user1);
         username2.setText(user2);
@@ -141,13 +154,21 @@ public class chatcontroller implements Initializable {
 
 
     public void setparameter(String someusername) {
-        System.out.println("-------------------------------");
+
         currentusername=someusername;
 
 
     }
 
 
+    /**
+     *
+     * get username, picurl of two users from database.
+     * Display such information
+     * @param  id, the username of clicked users.
+     *
+     *
+     * */
 
     public void chatwithfriend(String id) {
         DatabaseConnection connection = new DatabaseConnection();
@@ -225,6 +246,16 @@ public class chatcontroller implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
+
+    /**
+     *
+     * when user sends message, it will insert into database.
+     * @param  event the action event, it is a click action.
+     *
+     *
+     *
+     * */
+
 
     public void sendmessage(ActionEvent event){
         String message=entertest.getText();

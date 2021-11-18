@@ -26,6 +26,9 @@ import java.util.ResourceBundle;
 import static com.example.petdating.loginController.username;
 import static com.example.petdating.matchfriendcontroller.currentusername;
 
+
+
+
 public class chatwithfriendController {
 
     @FXML
@@ -57,6 +60,16 @@ public class chatwithfriendController {
         this.currentusername=someusername;
 
     }
+
+
+    /**
+     *
+     * get username, picurl of two users from database.
+     * Display such information
+     * @param  id, the username of clicked users.
+     *
+     *
+     * */
 
 
     public void chatwithfriend(String id) {
@@ -122,9 +135,17 @@ public class chatwithfriendController {
 
 
 
-
-
 }
+
+
+    /**
+     *
+     * when check button was clicked, the messageinfo will update by changing check column from 0 to 1.
+     * If check is 1, then it will not display in the notification section anymore.
+     * @param  id, the username of clicked users.
+     *
+     *
+     * */
 
     public void updatecheck(String id){
 
@@ -167,6 +188,14 @@ public class chatwithfriendController {
         stage.show();
     }
 
+    /**
+     *
+     * display the message sent to current user by clicked user.
+     * @param  id, the username of clicked users.
+     *
+     *
+     * */
+
     public void displaymessage(String id){
 
         DatabaseConnection connection = new DatabaseConnection();
@@ -208,6 +237,14 @@ public class chatwithfriendController {
 
 
     }
+
+    /**
+     *
+     * If current user sends a message to the clicked user, update the database by the message content, receiver and senter.
+     * @param  event
+     *
+     *
+     * */
 
     public void sendmessage(ActionEvent event){
         String message=entertest.getText();

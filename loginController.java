@@ -26,6 +26,15 @@ import java.util.Random;
 import java.util.ResourceBundle;
 
 
+/**
+ * loginController controls the login page. The login page has 5 methods.
+ * There are loginbuttonOnaction, validatelogin,registerbuttonAction,createAccount and changeSceneafterlogin.
+ * It asks the user to enter their username and password. Check if there are matched. If not, throws a warning
+ * If users have no username, ask them to register. When click the register button, another scene will come out.
+ * When click the log in button, main page will show up.
+ *
+ * **/
+
 public class loginController implements Initializable {
     @FXML
     private Label welcomeText;
@@ -59,6 +68,14 @@ public class loginController implements Initializable {
 
 
     @Override
+    /**
+     *
+     * show the two customized image of login page.
+     * @param  url  an absolute URL giving the base location of the image
+     * @see   image
+     *
+     *
+     * */
     public void initialize(URL url, ResourceBundle resourceBundle){
         File branding=new File("Petbarn-National-Pet-Dating-Day.png");
         Image brandingimage=new Image(branding.toURI().toString());
@@ -69,15 +86,19 @@ public class loginController implements Initializable {
         loginimageviewer.setImage(loginimage);
 
 
-
-
-
     }
 
-
+    /**
+     *
+     * validate the users' username and password. If not match, throws an error.
+     * @param  event the action event, it is a click action.
+     *
+     *
+     *
+     * */
     public void loginbuttonOnaction(ActionEvent event) throws IOException {
 
-//        System.out.println(loginmessagelabel.getText());
+
         if (usernameTextField.getText().isBlank()==false && passwordfield.getText().isBlank()==false){
             this.username=validatelogin(event);
 
@@ -87,13 +108,23 @@ public class loginController implements Initializable {
         }
     }
 
+
+
     public void registerbuttonAction(ActionEvent event){
         createAccount();
 
     }
 
 
-
+    /**
+     *
+     * validate the users' username and password extracted from the database. If not match, throws an error. If match,
+     * the current username will be updated.
+     * @param  event the action event, it is a click action.
+     * @return username the current user name.
+     *
+     *
+     * */
     public String validatelogin(ActionEvent event){
         DatabaseConnection connection=new DatabaseConnection();
         Connection connectDB=connection.getConnection();
@@ -130,6 +161,14 @@ public class loginController implements Initializable {
         return username;
     }
 
+    /**
+     *
+     * Click the register button, change the scene to register page.
+     *
+     *
+     *
+     * */
+
     public void createAccount(){
         try{
             FXMLLoader fxmlLoader = new FXMLLoader(main.class.getResource("/com/example/petdating/register.fxml"));
@@ -153,7 +192,14 @@ public class loginController implements Initializable {
 
 
     }
-
+    /**
+     * click the log in page, the scene will change to register page.
+     *
+     * @param  event the action event, it is a click action.
+     *
+     *
+     *
+     * */
 
     public void changeSceneafterlogin(ActionEvent event) throws IOException {
 
@@ -175,11 +221,4 @@ public class loginController implements Initializable {
 
 
 
-
-
-
-    @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
-    }
 }
